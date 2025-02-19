@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar AgriTech</title>
+    <link rel="stylesheet" href="design.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <script src="code.js"></script>
+</head>
+
+<body>
+
+    
+<div class="container">
+        <header>
+            <h1>Solar AgriTech</h1>
+            <div class="profile-section">
+                <img src="avatar.png" alt="Profile" class="avatar">
+                <button class="logout-button" onclick="logout()">
+            <img src="logout.png" alt="Logout" width="30" height="30">
+
+
+       <script>
+           function logout() {
+           window.location.href = 'logout.php'; }
+        </script>
+</div>
+        </header>
+
+
+
+        <div class="sidebar">
+            <h2>SolarAgriTech</h2>
+            <ul>
+                <li><a href="#" onclick="showTable('machine-status')">Dashboard</a></li>
+                <li><a href="#" onclick="showTable('seedMonitorTable')">Seed Monitor</a></li>
+                <li><a href="#" onclick="showTable('water-level-table')">Water Level</a></li>
+                <li><a href="#" onclick="showTable('battery-level-table')">Battery Level</a></li>
+                <li><a href="#" onclick="showTable('area-covered-Table')">Area Covered</a></li>
+                <li><a href="#" onclick="showTable('setting')">Settings</a></li>
+            </ul>
+        </div>
+
+        <!-- Machine Status Section with Pie Charts -->
+ <section class="machine-status">
+    <div class="status-card">
+        <h3>Battery Level</h3>
+        <canvas id="batteryChart"></canvas>
+    </div>
+    <div class="status-card">
+        <h3>Water Level</h3>
+        <canvas id="waterChart"></canvas>
+    </div>
+    <div class="status-card">
+        <h3>Soil Level</h3>
+        <canvas id="solarChart"></canvas>
+    </div>
+    <div class="status-card">
+        <h3>Seed Level</h3>
+        <canvas id="seedChart"></canvas>
+    </div>
+</section>
+
+
+
+<iframe src="fetch_data.php" width="100%" height="300px"></iframe>
+
+
+<!-- seed Level Monitoring Table -->
+     <table id="seedMonitorTable" class="seed-table" style="display:none;">
+            <tr><th>CC</th><th></th><th>Seeds Dropped</th><th>Status</th></tr>
+            </table>
+            <table id="seedMonitorTable">
+        <thead>
+        <tr>
+            <th>CC</th>
+            <th>Seeds Dropped</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+    <tbody id="seed-table">
+        <!-- Data will be inserted here -->
+    </tbody>
+</table>
+
+
+
+
+
+            <!-- Water Level Monitoring Table -->
+            <table id="water-level-table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Water Level (cm)</th>
+            <th>Water Amount (L)</th>
+            <th>Timestamp</th>
+        </tr>
+        </thead>
+    <tbody id="water-level-table-body">
+        <!-- Data will be inserted here -->
+    </tbody>
+</table>
+
+
+
+
+<!-- battery Level Monitoring Table -->
+            <table id="battery-table">
+        <thead>
+        <tr>
+            <th>Voltage</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+    <tbody id="battery-table">
+        <!-- Data will be inserted here -->
+    </tbody>
+</table>
+        
+       
+<!-- area covered Monitoring Table -->
+<table id="area-covered-Table">
+        <thead>
+        <tr>
+            <th>Voltage</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+    <tbody id="area-table">
+        
+        <!-- Data will be inserted here -->
+    </tbody>
+</table>
+
+
+            <table id="setting" class="settings-table" style="display:none;">
+                
+            </table>
+        </section>
+
+    
+ 
+
+</body>
+</html>
+<script>
+    window.history.pushState(null, "", window.location.href);
+    window.onpopstate = function() {
+        window.history.pushState(null, "", window.location.href);
+    };
+</script>
